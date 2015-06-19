@@ -63,7 +63,7 @@ function getcell(a::RandFern, data::Array{Float32,2})
             ind += 2^(n-i)
         end
     end
-    haskey(a.cellinds,ind) ? a.cells[a.cellinds[ind]]::Array{Float32,2} : a.zeros
+    haskey(a.cellinds,ind) ? (a.cells[a.cellinds[ind]]::Array{Float32,2},true) : (a.zeros, false)
 end
 
 bin2ind(a) = (local r = 1; for i = 1:length(a) r += 2^(length(a)-i)*a[i] end; r)
@@ -87,16 +87,18 @@ function predict!(a::RandFerns, data::Array{Float32,2})
 end
 
 function votes!(a::RandFerns, data)
+    nfound = 0
     a.buf[:] = 0
     for i = 1:length(a.ferns)
-        temp = getcell(a.ferns[i], data)
+        temp, found = getcell(a.ferns[i], data)
+        nfound += found
         for j = 1:length(a.buf)
             a.buf[j] += temp[j]
         end
     end
     if a.regression
         for i = 1:length(a.buf)
-            a.buf[i] /= length(a.ferns)
+            a.buf[i] /= nfound
         end
     end
     a.buf
