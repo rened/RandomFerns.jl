@@ -1,3 +1,5 @@
+println("\n\n\nRunning tests ...")
+
 using RandomFerns
 using Base.Test
 
@@ -18,3 +20,5 @@ r = predict(a, data)
 a = RandFerns(data,labels; regression = true);
 r = predict(a, data)
 @test mean(abs(vec(r)-vec(labels))) < 0.5
+
+println("   done running tests!")

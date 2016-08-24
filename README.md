@@ -1,6 +1,9 @@
 # RandomFerns
 
-[![Build Status](https://travis-ci.org/rened/RandomFerns.jl.svg?branch=master)](https://travis-ci.org/rened/RandomFerns.jl)
+[![Build Status](https://travis-ci.org/rened/RandomFerns.jl.png)](https://travis-ci.org/rened/RandomFerns.jl)
+[![Build Status](http://pkg.julialang.org/badges/RandomFerns_0.4.svg)](http://pkg.julialang.org/?pkg=RandomFerns&ver=0.4)
+[![Build Status](http://pkg.julialang.org/badges/RandomFerns_0.5.svg)](http://pkg.julialang.org/?pkg=RandomFerns&ver=0.5)
+
 
 This package provides an implementation of the very fast Random Ferns classifier / regressor as described in M. Özuysal et al., "Fast Keypoint Recognition in 10 Lines of Code", CVPR 2007.
 
